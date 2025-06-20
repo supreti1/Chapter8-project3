@@ -1,44 +1,23 @@
-const companyData = JSON.parse(`[
+const companies = [
   {
-    "symbol": "AAPL",
-    "companyName": "Apple Inc.",
-    "tags": ["Technology", "Hardware", "Consumer"],
-    "stats": {
-      "day50MovingAvg": 172.34,
-      "day200MovingAvg": 164.72,
-      "sharesOutstanding": 15629837489,
-      "operatingRevenue": 394328000000,
-      "costOfRevenue": 223546000000,
-      "totalAssets": 351002000000,
-      "totalLiabilities": 283278000000
-    }
+    symbol: "AAPL",
+    name: "Apple Inc.",
+    sharePrice50Day: "$172.34",
+    marketCap50Day: "$2.69T",
+    revenue: "$170.78B"
   },
   {
-    "symbol": "GOOGL",
-    "companyName": "Alphabet Inc.",
-    "tags": ["Technology", "Search", "AI"],
-    "stats": {
-      "day50MovingAvg": 123.87,
-      "day200MovingAvg": 118.23,
-      "sharesOutstanding": 12286000000,
-      "operatingRevenue": 282836000000,
-      "costOfRevenue": 126244000000,
-      "totalAssets": 365264000000,
-      "totalLiabilities": 102278000000
-    }
+    symbol: "GOOGL",
+    name: "Alphabet Inc.",
+    sharePrice50Day: "$123.87",
+    marketCap50Day: "$1.52T",
+    revenue: "$156.59B"
   },
   {
-    "symbol": "MSFT",
-    "companyName": "Microsoft Corporation",
-    "tags": ["Technology", "Cloud", "Software"],
-    "stats": {
-      "day50MovingAvg": 324.56,
-      "day200MovingAvg": 306.71,
-      "sharesOutstanding": 7460500000,
-      "operatingRevenue": 211915000000,
-      "costOfRevenue": 75600000000,
-      "totalAssets": 364840000000,
-      "totalLiabilities": 198298000000
-    }
+    symbol: "MSFT",
+    name: "Microsoft Corp.",
+    sharePrice50Day: "$318.97",
+    marketCap50Day: "$2.49T",
+    revenue: "$211.92B"
   }
-]`);
+];
