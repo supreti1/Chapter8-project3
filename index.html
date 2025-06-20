@@ -4,16 +4,91 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Top Tech Companies</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="companies-data.js" defer></script>
-  <script src="ch08-proj3.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px 15px;
+      text-align: left;
+    }
+    th {
+      background-color: #003366;
+      color: white;
+    }
+    td span.tag {
+      display: inline-block;
+      background-color: #3366cc;
+      color: #fff;
+      padding: 4px 8px;
+      margin: 2px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+  </style>
 </head>
 <body>
-  <main>
-    <div class="card">
-      <h1>Top Tech Companies</h1>
-      <div id="companies"></div>
-    </div>
-  </main>
+  <h1>Top Tech Companies</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>50-day Share Price</th>
+        <th>200-day Share Price</th>
+        <th>50-day Market Cap</th>
+        <th>200-day Market Cap</th>
+        <th>Net Revenue</th>
+        <th>Shareholder Equity</th>
+        <th>Tags</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>AAPL - Apple Inc.</td>
+        <td>$182.26</td>
+        <td>$190.30</td>
+        <td>$859,406,932,800.00</td>
+        <td>$897,317,784,000.00</td>
+        <td>$32,031,000,000.00</td>
+        <td>$117,892,000,000.00</td>
+        <td><span class="tag">Technology</span><span class="tag">Consumer Electronics</span><span class="tag">Computer Hardware</span></td>
+      </tr>
+      <tr>
+        <td>GOOGL - Alphabet Inc.</td>
+        <td>$123.87</td>
+        <td>$118.23</td>
+        <td>$1,521,866,820,000.00</td>
+        <td>$1,452,573,780,000.00</td>
+        <td>$156,592,000,000.00</td>
+        <td>$262,986,000,000.00</td>
+        <td><span class="tag">Technology</span><span class="tag">Search</span><span class="tag">AI</span></td>
+      </tr>
+      <tr>
+        <td>MSFT - Microsoft Corp.</td>
+        <td>$318.97</td>
+        <td>$312.55</td>
+        <td>$2,486,000,000,000.00</td>
+        <td>$2,392,000,000,000.00</td>
+        <td>$211,920,000,000.00</td>
+        <td>$272,000,000,000.00</td>
+        <td><span class="tag">Technology</span><span class="tag">Software</span><span class="tag">Cloud</span></td>
+      </tr>
+    </tbody>
+  </table>
 </body>
 </html>
