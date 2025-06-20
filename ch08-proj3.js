@@ -1,29 +1,15 @@
-import companies from './companies-data.js';
+window.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("companies");
 
-const container = document.getElementById('companies');
-
-companies.forEach(company => {
-  const companyDiv = document.createElement('div');
-  companyDiv.className = 'company';
-
-  const title = document.createElement('h2');
-  title.textContent = `${company.symbol} - ${company.name}`;
-  companyDiv.appendChild(title);
-
-  const infoList = document.createElement('ul');
-
-  const dataPoints = [
-    { label: 'Share Price (50-day)', value: company.sharePrice['50Day'] },
-    { label: 'Market Cap (50-day)', value: company.marketCap['50Day'] },
-    { label: 'Net Revenue', value: company.financials.revenue },
-  ];
-
-  dataPoints.forEach(dp => {
-    const li = document.createElement('li');
-    li.textContent = `${dp.label}: $${parseFloat(dp.value).toLocaleString()}`;
-    infoList.appendChild(li);
+  companies.forEach((company) => {
+    const div = document.createElement("div");
+    div.className = "company";
+    div.innerHTML = `
+      <h2>${company.symbol} - ${company.name}</h2>
+      <p><strong>Share Price (50-day avg):</strong> ${company.sharePrice50Day}</p>
+      <p><strong>Market Cap (50-day avg):</strong> ${company.marketCap50Day}</p>
+      <p><strong>Revenue:</strong> ${company.revenue}</p>
+    `;
+    container.appendChild(div);
   });
-
-  companyDiv.appendChild(infoList);
-  container.appendChild(companyDiv);
 });
