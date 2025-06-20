@@ -1,40 +1,29 @@
-function formatMoney(num) {
-  return `$${Number(num).toLocaleString(undefined, {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  })}`;
-}
+import companies from './companies-data.js';
 
-const container = document.getElementById("cards-container");
+const container = document.getElementById('companies');
 
-companyData.forEach(company => {
-  const card = document.createElement("article");
-  card.className = "card";
+companies.forEach(company => {
+  const companyDiv = document.createElement('div');
+  companyDiv.className = 'company';
 
-  const h2 = document.createElement("h2");
-  h2.textContent = `${company.symbol} - ${company.companyName}`;
+  const title = document.createElement('h2');
+  title.textContent = `${company.symbol} - ${company.name}`;
+  companyDiv.appendChild(title);
 
-  const stats = company.stats;
-  const div = document.createElement("div");
-  div.innerHTML = `
-    <p>Share Price (50-day avg): <span>${formatMoney(stats.day50MovingAvg)}</span></p>
-    <p>Share Price (200-day avg): <span>${formatMoney(stats.day200MovingAvg)}</span></p>
-    <p>Market Cap (50-day avg): <span>${formatMoney(stats.day50MovingAvg * stats.sharesOutstanding)}</span></p>
-    <p>Market Cap (200-day avg): <span>${formatMoney(stats.day200MovingAvg * stats.sharesOutstanding)}</span></p>
-    <p>Net Revenue: <span>${formatMoney(stats.operatingRevenue - stats.costOfRevenue)}</span></p>
-    <p>Shareholder Equity: <span>${formatMoney(stats.totalAssets - stats.totalLiabilities)}</span></p>
-  `;
+  const infoList = document.createElement('ul');
 
-  const footer = document.createElement("footer");
-  company.tags.forEach(tag => {
-    const small = document.createElement("small");
-    small.textContent = tag;
-    footer.appendChild(small);
+  const dataPoints = [
+    { label: 'Share Price (50-day)', value: company.sharePrice['50Day'] },
+    { label: 'Market Cap (50-day)', value: company.marketCap['50Day'] },
+    { label: 'Net Revenue', value: company.financials.revenue },
+  ];
+
+  dataPoints.forEach(dp => {
+    const li = document.createElement('li');
+    li.textContent = `${dp.label}: $${parseFloat(dp.value).toLocaleString()}`;
+    infoList.appendChild(li);
   });
 
-  card.appendChild(h2);
-  card.appendChild(div);
-  card.appendChild(footer);
-
-  container.appendChild(card);
+  companyDiv.appendChild(infoList);
+  container.appendChild(companyDiv);
 });
